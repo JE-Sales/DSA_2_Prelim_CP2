@@ -1,1 +1,81 @@
 
+
+public class LinkedList {
+	private Node head;
+	private int size;
+
+	public int getSize() {
+		return size;
+	}
+	/*
+	 * Adds the node at the end of the list.
+	 * If the linked list is empty, the node is set to be the head of the list.
+	 */
+	public void Append(Node node) {
+		if(head == null) {
+			head = node;
+			size++;
+		}else {
+			Node currentNode = head;
+			while(currentNode.getNext() != null) {
+				currentNode = currentNode.getNext();
+			}
+			currentNode.setNext(node);
+			size++;
+		}
+	}
+	
+	/*
+	 * Deletes a node in the linked list at a given position
+	 * If the position is out of bounds, the operation will also not be executed.
+	 * It has two pointers, currentNode points at the node to be deleted and
+	 * previousNode points to the node before the node to be deleted.
+	 * The node previousNode's next is set to the next of the node to be deleted.
+	 * currentNode(the node to be deleted)'s next is set to null to delete it.
+	 */
+	public void Delete(int position) {
+		if(position>size || position <=0) {
+			System.out.println("Invalid position value.\n");
+		}else {
+			if(position == 1) {
+				Node temp = head;
+				head = head.getNext();
+				temp.setNext(null);
+				size--;
+			}else {
+				Node currentNode = head;
+				Node previousNode = head;
+				for (int i = 2; i <=position;i++) {
+					previousNode = currentNode;
+					currentNode = currentNode.getNext();
+				}
+				previousNode.setNext(currentNode.getNext());
+				currentNode.setNext(null);
+				size--;
+			}
+		}
+	}
+	
+	
+	/*
+	 * Displays the contents of the list.
+	 * The method traverses through the list and stores the data in this format "data,<space>"
+	 * It is only printed when the String str is not empty.
+	 * The substring method is used to reformat the String, this is to remove the last ",<space>" of the string.
+	 * This avoids the problem which makes the String str looks like this:"The values in the linked list are: 1, 2, 3, "
+	 * upon printing.
+	 */
+	public void Display() {
+		Node currentNode = head;
+		String str = "";
+		while(currentNode != null) {
+			str += String.valueOf(currentNode.getData()) +", ";
+			currentNode = currentNode.getNext();
+		}
+		if(str !="") {
+			str = str.substring(0,str.length() -2);
+		}
+		System.out.println("The values in the linked list are: "+str);
+	}
+
+}
