@@ -1,1 +1,66 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
+public class Main {
+	
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+		
+		HashTable hashtable = new HashTable();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int option, key;
+		System.out.println("---HASH TABLE---");
+	
+		
+		while(true) {
+			try {
+				System.out.println("\n1. Add New Key");
+				System.out.println("2. Display Hash Table");
+				System.out.println("3. Search");
+				System.out.println("4. Delete");
+				System.out.println("5. Exit");
+				System.out.print("Enter Option Number: ");
+				option = Integer.parseInt(reader.readLine());
+				
+				switch(option) {
+				case 1:
+					addNewKey();
+					break;
+				case 2:
+					displayHashTable();
+					break;
+				case 3:
+					search();
+					break;
+				case 4:
+					delete();
+					break;
+				case 5:
+					System.out.print("\n--Exit--" + "\nProgram will be terminated");
+					
+					for (int i = 0; i < 3; i++) {
+						Thread.sleep(1000);
+						System.out.print(".");
+					}
+					System.out.print("\nProgram terminated.");
+					System.exit(0);
+					break;
+				}
+			} catch (NumberFormatException e) {
+				System.out.println("Only valid option is from numbers 1-5.\nPlease try again.");
+			}
+		}
+		
+		
+		
+	}
+	public static void addNewKey() {
+	}
+	public static void displayHashTable() {
+	}
+	public static void search() {	
+	}
+	public static void delete() {
+	}
+}
