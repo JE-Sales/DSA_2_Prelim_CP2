@@ -9,12 +9,13 @@ public class HashTable {
 
 	public void add(int key) {
 		int hash = hashFunction(key);
-		System.out.println("Hash: " + hash);
+		System.out.println("Original Index: " + hash);
 		table[hash].append(new Node(key));
+		
 	}
 
 
-	public void search() {	
+	public void view() {	
 		for (int i = 0; i < table.length; i++) {
 			System.out.print(i + (table[i].getSize() != 0 ? " -> " : ""));
 			table[i].display();
