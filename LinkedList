@@ -1,54 +1,65 @@
 
 public class LinkedList {
 	private Node head;
+	private int size;
 
+	public int getSize() {
+		return size;
+	}
 
 	public void append(Node node) {
 		if (head == null) {
 			head = node;
+			size++;
 		} else {
 			Node currentNode = head;
 			while (currentNode.getNext() != null) {
 				currentNode = currentNode.getNext();
 			}
 			currentNode.setNext(node);
+			size++;
 		}
 	}
 
 	public boolean search(int key) {
-		Node currentNode = head;
+		Node temp = head;
 
-		while (currentNode != null) {
-			if (currentNode.getData() == key)
+		while (temp != null) {
+			if (temp.getData() == key)
 				return true;
-			currentNode = currentNode.getNext();
+			temp = temp.getNext();
 		}
+
 		return false;
+
 	}
 
 	public void delete(int key) {
-		Node currentNode = head, prev = null;
+		Node temp = head, prev = null;
 
-		if (currentNode != null && currentNode.getData() == key) {
+		if (temp != null && temp.getData() == key) {
 			head = head.getNext() != null ? head.getNext() : null;
+			size--;
 			return;
 		}
 
-		while (currentNode != null) {
-			prev = currentNode;
-			currentNode = currentNode.getNext();
+		while (temp != null) {
+			prev = temp;
+			temp = temp.getNext();
 
-			if (currentNode.getData() == key) {
-				prev.setNext(currentNode.getNext() != null ? currentNode.getNext() : null);
+			if (temp.getData() == key) {
+				prev.setNext(temp.getNext() != null ? temp.getNext() : null);
+				size--;
 				return;
 			}
 		}
 
-		if (currentNode == null) {
+		if (temp == null) {
 			System.out.println("Key does not exist in the list.");
 		}
 
 	}
+
 	public void display() {
 		Node currentNode = head;
 		String str = "";
