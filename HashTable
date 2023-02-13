@@ -14,7 +14,7 @@ public class HashTable {
 	}
 
 
-	public void view() {	
+	public void search() {	
 		for (int i = 0; i < table.length; i++) {
 			System.out.print(i + (table[i].getSize() != 0 ? " -> " : ""));
 			table[i].display();
