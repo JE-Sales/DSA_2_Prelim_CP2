@@ -28,27 +28,24 @@ public class LinkedList {
 	}
 
 	public void delete(int key) {
-		Node currentNode = head, prev = null;
-
-		if (currentNode != null && currentNode.getData() == key) {
-			head = head.getNext() != null ? head.getNext() : null;
+		if(this.head == null) {
+			System.out.println("The key is not found.");
 			return;
 		}
-
-		while (currentNode != null) {
-			prev = currentNode;
-			currentNode = currentNode.getNext();
-
-			if (currentNode.getData() == key) {
-				prev.setNext(currentNode.getNext() != null ? currentNode.getNext() : null);
+		if(this.head.getData() == key) {
+			this.head = this.head.getNext();
+			System.out.println("The key is successfully deleted.");
+			return;
+		}
+		Node currentNode = head;
+		while(currentNode.getNext() != null) {
+			if(currentNode.getNext().getData() == key) {
+				currentNode.setNext(currentNode.getNext().getNext());
+				System.out.println("The key is successfully deleted.");
 				return;
 			}
+			currentNode = currentNode.getNext();
 		}
-
-		if (currentNode == null) {
-			System.out.println("Key does not exist in the list.");
-		}
-
 	}
 	
 
