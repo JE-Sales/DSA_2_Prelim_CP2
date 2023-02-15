@@ -1,22 +1,16 @@
 public class LinkedList {
 	private Node head;
-	private int size;
 
-	public int getSize() {
-		return size;
-	}
 
 	public void append(Node node) {
 		if (head == null) {
 			head = node;
-			size++;
 		} else {
 			Node currentNode = head;
 			while (currentNode.getNext() != null) {
 				currentNode = currentNode.getNext();
 			}
 			currentNode.setNext(node);
-			size++;
 		}
 	}
 
@@ -38,7 +32,6 @@ public class LinkedList {
 
 		if (temp != null && temp.getData() == key) {
 			head = head.getNext() != null ? head.getNext() : null;
-			size--;
 			return;
 		}
 
@@ -48,7 +41,6 @@ public class LinkedList {
 
 			if (temp.getData() == key) {
 				prev.setNext(temp.getNext() != null ? temp.getNext() : null);
-				size--;
 				return;
 			}
 		}
