@@ -15,12 +15,12 @@ public class LinkedList {
 	}
 
 	public boolean search(int key) {
-		Node temp = head;
+		Node currentNode = head;
 
-		while (temp != null) {
-			if (temp.getData() == key)
+		while (currentNode != null) {
+			if (currentNode.getData() == key)
 				return true;
-			temp = temp.getNext();
+			currentNode = currentNode.getNext();
 		}
 
 		return false;
@@ -28,24 +28,24 @@ public class LinkedList {
 	}
 
 	public void delete(int key) {
-		Node temp = head, prev = null;
+		Node currentNode = head, prev = null;
 
-		if (temp != null && temp.getData() == key) {
+		if (currentNode != null && currentNode.getData() == key) {
 			head = head.getNext() != null ? head.getNext() : null;
 			return;
 		}
 
-		while (temp != null) {
-			prev = temp;
-			temp = temp.getNext();
+		while (currentNode != null) {
+			prev = currentNode;
+			currentNode = currentNode.getNext();
 
-			if (temp.getData() == key) {
-				prev.setNext(temp.getNext() != null ? temp.getNext() : null);
+			if (currentNode.getData() == key) {
+				prev.setNext(currentNode.getNext() != null ? currentNode.getNext() : null);
 				return;
 			}
 		}
 
-		if (temp == null) {
+		if (currentNode == null) {
 			System.out.println("Key does not exist in the list.");
 		}
 
