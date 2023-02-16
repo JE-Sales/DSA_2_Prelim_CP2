@@ -107,7 +107,7 @@ public class Main {
 
 					break;
 					
-				// Exits the program.
+				// Exits the program
 				case 5:
 					System.out.print("\n--Exit--" + "\nProgram will be terminated");
 
