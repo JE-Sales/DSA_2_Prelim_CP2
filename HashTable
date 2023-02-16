@@ -62,7 +62,7 @@ public class HashTable {
 	
 	/*
 	 * Used to compute the hash. Utilizes the modulo division method to create hash values.
-	 * Returns the hash
+	 * Returns the hash.
 	 */
 	private static int hashFunction(int key) {
 		int hash = key % 10;
