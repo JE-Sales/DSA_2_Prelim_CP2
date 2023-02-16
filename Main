@@ -9,7 +9,13 @@ public class Main {
 		HashTable hashtable = new HashTable();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int option, key;
-
+		
+		/*
+		 * The main menu of the program. Calls the methods of the operations selected by
+		 * the command input of the user. Each methods also performs input checking to
+		 * ensure no errors would occur. If an error occurs, the user is returned into
+		 * the main menu.
+		 */	
 		System.out.println("---HASH TABLE---");
 		while (true) {
 
@@ -28,7 +34,10 @@ public class Main {
 				}
 
 				switch (option) {
-
+				
+				/*
+				 * Adds a key to the Hash Table. Only valid inputs are Positive Integers
+				 */
 				case 1:
 
 					try {
@@ -47,13 +56,23 @@ public class Main {
 					}
 
 					break;
-
+				
+				/*
+				 * Displays the contents of the Hash Table.
+				 * It displays the index together with its key value.
+				 */	
 				case 2:
 					System.out.println("\n--Display Hash Table--");
 					hashtable.view();
 
 					break;
-
+				
+				/*
+				 * Searches for a key in the Hash Table. 
+				 * Only valid inputs are Positive Integer
+				 * Displays the key and its index when found.
+				 * Displays a prompt if it is not found.
+				 */
 				case 3:
 					try {
 						System.out.println("\n--Search Key--");
@@ -67,7 +86,12 @@ public class Main {
 								"The only allowed inputs are POSITIVE INTEGERS, no Negative Integer!\nPlease try again.");
 					}
 					break;
-
+				
+				/*
+				 * Deletes a key in the Hash Table. 
+				 * Only valid inputs are Positive Integer
+				 * Deletes the key when found, shows a prompt if it is not found
+				 */
 				case 4:
 					try {
 						System.out.println("\n--Delete Key--");
@@ -82,7 +106,8 @@ public class Main {
 					}
 
 					break;
-
+					
+				// Exits the program.
 				case 5:
 					System.out.print("\n--Exit--" + "\nProgram will be terminated");
 
