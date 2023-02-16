@@ -1,7 +1,12 @@
 public class LinkedList {
 	private Node head;
 
-
+	/*
+	 * Method for adding a new node. If the linked list is empty, 
+         * the new node will be the head of the list. If not, the LinkedList
+	 * will be traversed up to the end of the list, and adds the new node 
+	 * at the tail of the linked list.
+	 */ 
 	public void append(Node node) {
 		if (head == null) {
 			head = node;
@@ -13,7 +18,11 @@ public class LinkedList {
 			currentNode.setNext(node);
 		}
 	}
-
+	
+	/*
+	 * Method that returns true if the key was founded on the LinkedList.
+	 * If not founded, returns false.
+	 */
 	public boolean search(int key) {
 		Node currentNode = head;
 
@@ -26,7 +35,12 @@ public class LinkedList {
 		return false;
 
 	}
-
+	
+	
+	/*
+	 * Method that deletes a key on the LinkedList if the key matches a data 
+	 * on the LinkedList. If not, a prompt will be displayed.
+	 */
 	public void delete(int key) {
 		if(this.head == null) {
 			System.out.println("The key is not found.");
@@ -48,7 +62,7 @@ public class LinkedList {
 		}
 	}
 	
-
+	// Method for displaying the contents of the LinkedList
 	public void display() {
 		Node currentNode = head;
 		String str = "";
@@ -62,6 +76,10 @@ public class LinkedList {
 		System.out.println(str);
 	}
 	
+	/*
+	 * Method that returns true if the head node is null.
+	 * If not, returns false.
+	 */
 	public boolean isEmpty() {
 		boolean isEmpty = true;
 		if(this.head == null) {
