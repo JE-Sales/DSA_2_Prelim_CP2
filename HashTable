@@ -6,7 +6,11 @@ public class HashTable {
 			table[i] = new LinkedList();
 		}
 	}
-
+	
+	/*
+	 * add function accepts integer as key. The keys are then hashed by the
+	 * HashFunction method. Uses separate chaining as solution for the collisions. 
+	 */
 	public void add(int key) {
 		int hash = hashFunction(key);
 		System.out.println("Hash: " + hash);
@@ -14,7 +18,10 @@ public class HashTable {
 		
 	}
 
-
+	
+	/*
+	 * Shows the contents of the HashTable
+	 */
 	public void view() {	
 		for (int i = 0; i < table.length; i++) {
 			System.out.print(i + (table[i].isEmpty() == false ? " -> " : ""));
@@ -22,7 +29,13 @@ public class HashTable {
 		}
 	}
 
-
+	/*
+	 * Searches for a key in the Hash Table. The hash is first computed by the
+	 * HashFunction method to find its expected position. If it is not found in the
+	 * hash, the LinkedList will be traversed and searched. It is considered as 
+	 * non-existent when the function reached the end of the LinkedList and it is 
+	 * still not found. If it is found, the index together with the key is displayed.
+	 */
 	public void search(int key) {
 		int hash = hashFunction(key);
 		if(table[hash].search(key)) {
@@ -32,12 +45,25 @@ public class HashTable {
 		}
 			
 	}
-
+	
+	/*
+	 * Deletes a key in the Hash Table. The hash is first computed by the
+	 * HashFunction method to find its expected position. If it is not found in the
+	 * hash, the LinkedList will be traversed and searched. It is considered as 
+	 * non-existent when the function reached the end of the LinkedList and it is 
+	 * still not found. If it is found, the value in the hash is equal to the key input, 
+	 * will deleted from the LinkedList. 
+	 */
 	public void delete(int key) {
 		int hash = hashFunction(key);
 		table[hash].delete(key);
 	}
-
+	
+	
+	/*
+	 * Used to compute the hash. Utilizes the modulo division method to create hash values.
+	 * Returns the hash.
+	 */
 	private static int hashFunction(int key) {
 		int hash = key % 10;
 		return hash;
