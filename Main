@@ -79,7 +79,7 @@ public class Main {
 						System.out.print("Enter Key to Search: ");
 						key = Integer.parseInt(reader.readLine());
 						if(key <=0) {
-							System.out.println("Numbers <=0 does not exist in the Hash Table");
+							System.out.println("Numbers <=0 does not exist in the Hash Table.");
 						}else {
 							hashtable.search(key);
 						}
@@ -102,7 +102,7 @@ public class Main {
 						System.out.print("Enter Key to Delete: ");
 						key = Integer.parseInt(reader.readLine());
 						if(key <=0) {
-							System.out.println("Numbers <=0 does not exist in the Hash Table");
+							System.out.println("Numbers <=0 does not exist in the Hash Table.");
 						}else {
 							hashtable.delete(key);
 						}
