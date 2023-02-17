@@ -3,9 +3,8 @@ public class LinkedList {
 
 	/*
 	 * Method for adding a new node. If the linked list is empty, 
-         * the new node will be the head of the list. If not, the LinkedList
-	 * will be traversed up to the end of the list, and adds the new node 
-	 * at the tail of the linked list.
+     * the new node will be the head of the list. 
+     * If not, the new node will be added at the end of the list.
 	 */ 
 	public void append(Node node) {
 		if (head == null) {
@@ -20,8 +19,8 @@ public class LinkedList {
 	}
 	
 	/*
-	 * Method that returns true if the key was founded on the LinkedList.
-	 * If not founded, returns false.
+	 *Searches for a key in the List
+	 *Returns true if found, otherwise, it returns false
 	 */
 	public boolean search(int key) {
 		Node currentNode = head;
@@ -31,23 +30,25 @@ public class LinkedList {
 				return true;
 			currentNode = currentNode.getNext();
 		}
-
 		return false;
 
 	}
 	
-	
 	/*
-	 * Method that deletes a key on the LinkedList if the key matches a data 
-	 * on the LinkedList. If not, a prompt will be displayed.
+	 * Deletes a key in the list
+	 * It first checks if the list is empty and then if the head node contains
+	 * the key.
+	 * If not found, the list is traversed to find the key.
+	 * If it found, the key is deleted, otherwise a prompt will tell that the key
+	 * is not found.
 	 */
 	public void delete(int key) {
-		if(this.head == null) {
+		if(head == null) {
 			System.out.println("The key is not found.");
 			return;
 		}
-		if(this.head.getData() == key) {
-			this.head = this.head.getNext();
+		if(head.getData() == key) {
+			head = this.head.getNext();
 			System.out.println("The key is successfully deleted.");
 			return;
 		}
@@ -62,7 +63,11 @@ public class LinkedList {
 		}
 	}
 	
-	// Method for displaying the contents of the LinkedList
+	/*
+	 * Displays the contents of the list
+	 * Each key is segmented by the string " -> "
+	 * A substring is made to remove the last unnecessary " -> ".
+	 */
 	public void display() {
 		Node currentNode = head;
 		String str = "";
@@ -77,8 +82,8 @@ public class LinkedList {
 	}
 	
 	/*
-	 * Method that returns true if the head node is null.
-	 * If not, returns false.
+	 * Returns true if the list is empty (head == null)
+	 * Otherwise, it returns false.
 	 */
 	public boolean isEmpty() {
 		boolean isEmpty = true;
