@@ -78,7 +78,11 @@ public class Main {
 						System.out.println("\n--Search Key--");
 						System.out.print("Enter Key to Search: ");
 						key = Integer.parseInt(reader.readLine());
-						hashtable.search(key);
+						if(key <=0) {
+							System.out.println("Numbers <=0 does not exist in the Hash Table");
+						}else {
+							hashtable.search(key);
+						}
 					} catch (NumberFormatException e) {
 						System.out.println("The only allowed inputs are POSITIVE INTEGERS!\nPlease try again.");
 					} catch (ArrayIndexOutOfBoundsException e) {
@@ -97,7 +101,11 @@ public class Main {
 						System.out.println("\n--Delete Key--");
 						System.out.print("Enter Key to Delete: ");
 						key = Integer.parseInt(reader.readLine());
-						hashtable.delete(key);
+						if(key <=0) {
+							System.out.println("Numbers <=0 does not exist in the Hash Table");
+						}else {
+							hashtable.delete(key);
+						}
 					} catch (NumberFormatException e) {
 						System.out.println("The only allowed inputs are POSITIVE INTEGERS!\nPlease try again.");
 					} catch (ArrayIndexOutOfBoundsException e) {
