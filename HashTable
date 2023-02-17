@@ -10,6 +10,7 @@ public class HashTable {
 	/*
 	 * add function accepts integer as key. The keys are then hashed by the
 	 * HashFunction method. Uses separate chaining as solution for the collisions. 
+	 * The hash is displayed when adding new keys.
 	 */
 	public void add(int key) {
 		int hash = hashFunction(key);
@@ -21,6 +22,8 @@ public class HashTable {
 	
 	/*
 	 * Shows the contents of the HashTable
+	 * Starts the display with an arrow "->" if the list is not empty,
+	 * otherwise it will display only the index.
 	 */
 	public void view() {	
 		for (int i = 0; i < table.length; i++) {
@@ -28,14 +31,15 @@ public class HashTable {
 			table[i].display();
 		}
 	}
-
+	
 	/*
-	 * Searches for a key in the Hash Table. The hash is first computed by the
-	 * HashFunction method to find its expected position. If it is not found in the
-	 * hash, the LinkedList will be traversed and searched. It is considered as 
-	 * non-existent when the function reached the end of the LinkedList and it is 
-	 * still not found. If it is found, the index together with the key is displayed.
+	 * Searches for a key in the Hash Table.
+	 * THe hash is first computed by the hash function, the key is searched 
+	 * in the list found at the hash.
+	 * If found, the hash/index together with the key is displayed, a prompt will
+	 * display if it was not found.
 	 */
+
 	public void search(int key) {
 		int hash = hashFunction(key);
 		if(table[hash].search(key)) {
@@ -47,13 +51,12 @@ public class HashTable {
 	}
 	
 	/*
-	 * Deletes a key in the Hash Table. The hash is first computed by the
-	 * HashFunction method to find its expected position. If it is not found in the
-	 * hash, the LinkedList will be traversed and searched. It is considered as 
-	 * non-existent when the function reached the end of the LinkedList and it is 
-	 * still not found. If it is found, the value in the hash is equal to the key input, 
-	 * will deleted from the LinkedList. 
+	 * Deletes a key in the Hash Table using the LinkedList class' delete function.
+	 * The hash is computed by the hash function and the linked list at the hash is searched
+	 * for the key.
+	 * If it is found, it is deleted, else a prompt will show telling that it is not found.
 	 */
+	
 	public void delete(int key) {
 		int hash = hashFunction(key);
 		table[hash].delete(key);
